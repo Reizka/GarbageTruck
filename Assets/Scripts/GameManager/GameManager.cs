@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
 
     //register ingame data = errors and rights
-    private int[][] errors;
+    private int[,] errors;
 
     private int[] rights;
 
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         pause = false;
         camMovement = GameObject.FindWithTag("MainCamera").GetComponent<CameraScroller>();
-        errors = new int[4][];
+        errors = new int[4,4];
         rights = new int[4];
         StartLevel();
     }
@@ -165,7 +165,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        errors[binIdx][garbageIdx]++;
+        Debug.Log("added 1 to " + tagBin + "," + tagObj + "; this means" + binIdx + "," + garbageIdx);
+        errors[binIdx,garbageIdx]++;
     }
 
 
@@ -195,8 +196,9 @@ public class GameManager : MonoBehaviour
         }
 
         rights[garbageIdx]++;
+        Debug.Log("added a right to " +tagObj +", "+ garbageIdx);
     }
-
+    
 
 
     void StreetSetup()

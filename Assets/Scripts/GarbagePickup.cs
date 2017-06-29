@@ -16,10 +16,11 @@ public class GarbagePickup : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("gargageTrig");
-        if ((player1.tag == collision.gameObject.tag && !player1.GetComponent<AvatarPoo>().poo)|| (player2.tag == collision.gameObject.tag && player2.GetComponent<AvatarPoo>().poo)) 
+        if ((player1.tag == collision.gameObject.tag && !player1.GetComponent<AvatarPoo>().poo)|| (player2.tag == collision.gameObject.tag && !player2.GetComponent<AvatarPoo>().poo)) 
         {
             Debug.Log("TriggeredAvatar");
             Transform garbage = this.GetComponent<Transform>();

@@ -102,7 +102,10 @@ public class BinCollisionScript : MonoBehaviour {
             {
                 //Oh, the player has placed the garbage in the wrong bin..
                 //Prepare to the explosion in 3,2,1..
-                gameManager.RegisterError(garbageType.tag, collision.gameObject.tag);
+                Debug.Log("bin tag is " + garbageType.tag);
+                Debug.Log("col tag is " + collision.gameObject.tag);
+                if (gameManager)
+                    gameManager.RegisterError(garbageType.tag, collision.gameObject.tag);
                 gameManager.ManipulateScore(collision.gameObject.GetComponent<GarbageScoring>().scoreWrongBin);
                 Explode(collision);
 
