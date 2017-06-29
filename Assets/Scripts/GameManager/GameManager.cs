@@ -52,7 +52,14 @@ public class GameManager : MonoBehaviour
     {
 		if (!pause)
         {
-            timer -= Time.deltaTime;
+            if (timer > 0f)
+            {
+                timer -= Time.deltaTime;
+                if (timer < 0f)
+                    timer = 0f;
+            }
+                
+            
             UItimer.text = timer.ToString();
 
 
