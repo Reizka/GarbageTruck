@@ -19,7 +19,8 @@ public class GarbagePickup : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("gargageTrig");
-        if ((player1.tag == collision.gameObject.tag && !player1.GetComponent<AvatarPoo>().poo)|| (player2.tag == collision.gameObject.tag && player2.GetComponent<AvatarPoo>().poo)) 
+        if ((player1.tag == collision.gameObject.tag && !player1.GetComponent<PlayerStatus>().poo && !player1.GetComponent<PlayerStatus>().GetGarbageAttached())
+            || (player2.tag == collision.gameObject.tag && player2.GetComponent<PlayerStatus>().poo && !player2.GetComponent<PlayerStatus>().GetGarbageAttached())) 
         {
             Debug.Log("TriggeredAvatar");
             Transform garbage = this.GetComponent<Transform>();
@@ -27,7 +28,7 @@ public class GarbagePickup : MonoBehaviour {
 
             if (isPoo)
             {
-                collision.gameObject.GetComponent<AvatarPoo>().SetPoo(true);
+                collision.gameObject.GetComponent<PlayerStatus>().SetPoo(true);
             }
         }
     }
