@@ -61,10 +61,9 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void PrepareGarbageNotShown()
-    {
-        GameObject[] allGarbage = GameObject.FindGameObjectsWithTag("GarbageCartoon");
 
+    private void TransformColliderInTrigger(GameObject[] allGarbage)
+    {
         foreach (GameObject garbage in allGarbage)
         {
             if (garbage.transform.position.x <= -6f)
@@ -72,6 +71,15 @@ public class GameManager : MonoBehaviour
                 garbage.GetComponent<BoxCollider2D>().isTrigger = true;
             }
         }
+    }
+
+
+
+    public void PrepareGarbageNotShown()
+    {
+        GameObject[] allGarbage = GameObject.FindGameObjectsWithTag("GarbageCartoon");
+
+        //GameObject[] allGarbage = GameObject.FindGameObjectsWithTag("GarbageCartoon");
 
     }
 }
