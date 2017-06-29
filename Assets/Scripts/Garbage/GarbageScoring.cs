@@ -10,21 +10,14 @@ public class GarbageScoring : MonoBehaviour
     private BoxCollider2D _collider;
 
     [SerializeField]
-<<<<<<< HEAD
-    public int scoreMissed;
-       
-    [SerializeField]
-    public int scoreCorrectBin;
-    [SerializeField]
-    public int scoreWrongBin;
-=======
+
     public int scoreMissed = -15;
 
     [SerializeField]
     public int scoreCorrectBin = 20;
     [SerializeField]
     public int scoreWrongBin = -15;
->>>>>>> origin/master
+
 
 
     [SerializeField]
