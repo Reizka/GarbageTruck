@@ -38,21 +38,11 @@ public class CameraScroller : MonoBehaviour
         rolling = isRolling;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    /*
+    void OnCollisionEnter2D(Collision2D col)
     {
-       if (col.transform.gameObject.tag == "Player")
-       {
-            if (col.transform.position.y < -yOffset)
-            {
-                col.transform.position = new Vector3(col.transform.position.x , col.transform.position.y - 0.05f, col.transform.position.z);
-            }
-            else if (col.transform.position.y > yOffset)
-            {
-                col.transform.position = new Vector3(col.transform.position.x, col.transform.position.y - 0.05f, col.transform.position.z);
-            }
-            else 
-                col.transform.position = new Vector3(col.transform.position.x - 0.05f, col.transform.position.y, col.transform.position.z);
-            
-       }
+
+        
     }
+    */
 }
