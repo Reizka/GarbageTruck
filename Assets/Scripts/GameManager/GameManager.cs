@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         timer = levelDuration;
         totalScore = 0;
+        PrepareGarbageNotShown();
     }
 
 
@@ -57,5 +58,20 @@ public class GameManager : MonoBehaviour
     public void ManipulateScore(int val)
     {
         totalScore += val;
+    }
+
+
+    public void PrepareGarbageNotShown()
+    {
+        GameObject[] allGarbage = GameObject.FindGameObjectsWithTag("GarbageCartoon");
+
+        foreach (GameObject garbage in allGarbage)
+        {
+            if (garbage.transform.position.x <= -6f)
+            {
+                garbage.GetComponent<BoxCollider2D>().isTrigger = true;
+            }
+        }
+
     }
 }
