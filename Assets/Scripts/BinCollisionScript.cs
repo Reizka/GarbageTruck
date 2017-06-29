@@ -87,13 +87,14 @@ public class BinCollisionScript : MonoBehaviour {
                 if (nGarbageInside < maxGarbageNumber)
                 {
                     gameManager.ManipulateScore(collision.gameObject.GetComponent<GarbageScoring>().scoreCorrectBin);
+                    gameManager.RegisterRight(garbageType.tag);
                     nGarbageInside++;
                     Destroy(collision.gameObject);
 
                 }
                 else
                 {
-                    gameManager.RegisterError(garbageType.tag, collision.gameObject.tag);
+                    
                     Debug.Log("FULL");
                 }
             }
@@ -101,6 +102,7 @@ public class BinCollisionScript : MonoBehaviour {
             {
                 //Oh, the player has placed the garbage in the wrong bin..
                 //Prepare to the explosion in 3,2,1..
+                gameManager.RegisterError(garbageType.tag, collision.gameObject.tag);
                 gameManager.ManipulateScore(collision.gameObject.GetComponent<GarbageScoring>().scoreWrongBin);
                 Explode(collision);
 

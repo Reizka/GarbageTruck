@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class GarbagePickup : MonoBehaviour {
 
-    public GameObject player1;
-    public GameObject player2;
+    private GameObject player1;
+    private GameObject player2;
     public bool isPoo = false;
+
+    private void Start()
+    {
+        player1 = GameObject.FindWithTag("player1");
+        player2 = GameObject.FindWithTag("player2");
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
