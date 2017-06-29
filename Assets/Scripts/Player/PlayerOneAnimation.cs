@@ -7,7 +7,7 @@ public class PlayerOneAnimation : MonoBehaviour {
     private bool up, down, left, right;
     private Vector3 dir;
 
-    private Animation anim;
+   
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +30,8 @@ public class PlayerOneAnimation : MonoBehaviour {
 
     void ChangeSpriteDirection()
     {
+
+
 
         //UP
         if (Input.GetKey("w"))
