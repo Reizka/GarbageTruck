@@ -90,6 +90,9 @@ public class GameManager : MonoBehaviour
     {
         camMovement.SetRolling(false);
 
+
+        CountRestGarbage();
+
         statsScreen.SetActive(true);
         statsScreen.GetComponent<StatsScreen>().Prepare(errors, rights, missed);
     }
@@ -120,7 +123,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    //transforms colliders from objects before camera in triggers - they will become real colliders again after passing through truck, at garbagescoring.cs
     public void PrepareGarbageNotShown()
     {
         GameObject[] allGarbage = GameObject.FindGameObjectsWithTag("GarbageCartoon");
@@ -138,6 +141,59 @@ public class GameManager : MonoBehaviour
         
 
     }
+
+    //applies penalties for garbage left on the floor when level ends
+    private void ApplyPenalty(int penalty, int numberOfGarbage, int type)
+    {
+        totalScore += penalty * numberOfGarbage;
+
+        missed[type] += numberOfGarbage;
+    }
+
+    //applies penalties for garbage left on the floor when level ends
+    private void CountRestGarbage()
+    {
+        int penalty = 0;
+
+        GameObject[] allGarbage = GameObject.FindGameObjectsWithTag("GarbageCartoon");
+
+        if (allGarbage.Length > 0)
+        { 
+            penalty = allGarbage[0].GetComponent<GarbageScoring>().scoreMissed;
+
+            ApplyPenalty(penalty, allGarbage.Length, 0);
+
+            foreach (GameObject g in allGarbage)
+                Destroy(g);
+        }
+        allGarbage = GameObject.FindGameObjectsWithTag("GarbageGeneric");
+
+          
+        if (allGarbage.Length > 0)
+        {
+            if (penalty >= 0)
+                penalty = allGarbage[0].GetComponent<GarbageScoring>().scoreMissed;
+
+            ApplyPenalty(penalty, allGarbage.Length, 1);
+
+            foreach (GameObject g in allGarbage)
+                Destroy(g);
+        }
+        allGarbage = GameObject.FindGameObjectsWithTag("GarbagePlastic");
+
+        if (allGarbage.Length > 0)
+        {
+            if (penalty >= 0)
+                penalty = allGarbage[0].GetComponent<GarbageScoring>().scoreMissed;
+
+            ApplyPenalty(penalty, allGarbage.Length, 1);
+
+            foreach (GameObject g in allGarbage)
+                Destroy(g);
+        }
+    }
+
+
 
     //translates the errors into a matrix
     public void RegisterError(string tagBin, string tagObj)

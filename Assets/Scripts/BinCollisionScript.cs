@@ -135,16 +135,22 @@ public class BinCollisionScript : MonoBehaviour {
         
 
         Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.nearClipPlane));
-        screenPosition = new Vector3(screenPosition.x * Random.Range(3,7), screenPosition.y * Random.Range(3, 7), 0);
-        GameObject wrongClone = Instantiate(collision.gameObject, screenPosition, Quaternion.identity,clonesDir.transform);
+        //screenPosition = new Vector3(screenPosition.x * Random.Range(3,7), screenPosition.y * Random.Range(3, 7), 0);
+        //GameObject wrongClone = Instantiate(collision.gameObject, screenPosition, Quaternion.identity,clonesDir.transform);
+        screenPosition = new Vector3(screenPosition.x - Random.Range(-2f, -1f), Random.Range(-1, 2), 0);
+        Debug.Log("screenPos is " + screenPosition);
+        GameObject wrongClone = Instantiate(collision.gameObject, screenPosition, Quaternion.identity, null);
+        wrongClone.transform.localScale = new Vector3(3, 3, 3);
         Destroy(collision.gameObject);
         //  clone.transform.position = screenPosition;
 
         for (int i = 0; i < nGarbageInside; i++)
         {
             screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), Camera.main.nearClipPlane));
-            screenPosition = new Vector3(screenPosition.x * Random.Range(3, 7), screenPosition.y * Random.Range(3, 7), 0);
-            GameObject clone = Instantiate(garbageType, screenPosition, Quaternion.identity, clonesDir.transform);
+            //screenPosition = new Vector3(screenPosition.x * Random.Range(3, 7), screenPosition.y * Random.Range(3, 7), 0);
+            screenPosition = new Vector3(screenPosition.x - Random.Range(-2f, -1f), Random.Range(-1, 2), 0);
+            //GameObject clone = Instantiate(garbageType, screenPosition, Quaternion.identity, clonesDir.transform);
+            GameObject clone = Instantiate(garbageType, screenPosition, Quaternion.identity, null);
         }
 
         nGarbageInside = 0;
