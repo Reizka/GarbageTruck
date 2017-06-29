@@ -10,12 +10,21 @@ public class GarbageScoring : MonoBehaviour
     private BoxCollider2D _collider;
 
     [SerializeField]
-    public int scoreMissed { get; }
+<<<<<<< HEAD
+    public int scoreMissed;
        
     [SerializeField]
-    public int scoreCorrectBin { get; }
+    public int scoreCorrectBin;
     [SerializeField]
-    public int scoreWrongBin { get; }
+    public int scoreWrongBin;
+=======
+    public int scoreMissed = -15;
+
+    [SerializeField]
+    public int scoreCorrectBin = 20;
+    [SerializeField]
+    public int scoreWrongBin = -15;
+>>>>>>> origin/master
 
 
     [SerializeField]
@@ -73,7 +82,7 @@ public class GarbageScoring : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        //Debug.Log("trigger enter "+ col.gameObject.tag);
+        Debug.Log("trigger enter "+ col.gameObject.tag);
 
         if (col.gameObject.tag == "MainCamera")
         {

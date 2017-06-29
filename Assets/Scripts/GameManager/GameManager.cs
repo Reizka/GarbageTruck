@@ -21,7 +21,11 @@ public class GameManager : MonoBehaviour
 
     private CameraScroller camMovement;
 
+
+    //register ingame data = errors and rights
     private int[][] errors;
+
+    private int[] rights;
 
     public GameObject street, street_middle, pavement;
     public int height_y = 8;
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
         pause = false;
         camMovement = GameObject.FindWithTag("MainCamera").GetComponent<CameraScroller>();
         errors = new int[4][];
+        rights = new int[4];
         StartLevel();
     }
 
@@ -52,7 +57,14 @@ public class GameManager : MonoBehaviour
     {
 		if (!pause)
         {
-            timer -= Time.deltaTime;
+            if (timer > 0f)
+            {
+                timer -= Time.deltaTime;
+                if (timer < 0f)
+                    timer = 0f;
+            }
+                
+            
             UItimer.text = timer.ToString();
 
 
@@ -154,6 +166,35 @@ public class GameManager : MonoBehaviour
         }
 
         errors[binIdx][garbageIdx]++;
+    }
+
+
+    //translates the errors into a matrix
+    public void RegisterRight(string tagObj)
+    {
+        
+        int garbageIdx = 0;
+        
+        switch (tagObj)
+        {
+            case "GarbageCartoon":
+                garbageIdx = 0;
+                break;
+
+            case "GarbageGeneric":
+                garbageIdx = 1;
+                break;
+
+            case "GarbagePlastic":
+                garbageIdx = 2;
+                break;
+
+            case "GarbageGlass":
+                garbageIdx = 3;
+                break;
+        }
+
+        rights[garbageIdx]++;
     }
 
 
