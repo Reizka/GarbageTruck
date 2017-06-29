@@ -9,7 +9,6 @@ public class GarbageScoring : MonoBehaviour
 
     private BoxCollider2D _collider;
 
-    
     public int scoreMissed = -15;
 
     
