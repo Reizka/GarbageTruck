@@ -5,24 +5,22 @@ using UnityEngine;
 
 public class GarbagePickup : MonoBehaviour {
 
-    public GameObject players1;
-    public GameObject players2;
-
-    private void Awake()
-    {
-
-    }
+    public GameObject player1;
+    public GameObject player2;
+    public bool isPoo = false;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("gargageTrig");
-        if (players1 == collision.gameObject || players2 == collision.gameObject) 
+        if ((player1.tag == collision.gameObject.tag)|| player2.tag == collision.gameObject.tag) 
         {
             Debug.Log("TriggeredAvatar");
             Transform garbage = this.GetComponent<Transform>();
             garbage.parent = collision.gameObject.transform;
         }
     }
+
+
 
 }
