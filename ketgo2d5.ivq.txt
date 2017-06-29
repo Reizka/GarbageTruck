@@ -1,0 +1,51 @@
+﻿Merge branch 'master' of https://github.com/Reizka/GarbageTruck
+
+# Conflicts:
+#	Assets/Scenes/cameraMovementTest.unity
+#	Assets/Scripts/GameManager/GameManager.cs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 7 and 6 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	new file:   Assets/Img/bin/yellow.png
+#	new file:   Assets/Img/bin/yellow.png.meta
+#	new file:   Assets/Prefabs/Background/Street/street.prefab
+#	renamed:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_left.anim.meta -> Assets/Prefabs/Background/Street/street.prefab.meta
+#	new file:   Assets/Prefabs/Background/Street/street_middle.prefab
+#	renamed:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle.anim.meta -> Assets/Prefabs/Background/Street/street_middle.prefab.meta
+#	new file:   Assets/Prefabs/Background/Street/walkway.prefab
+#	renamed:    Assets/Prefabs/Characters/Player_1/Animations/player_1_controller.controller.meta -> Assets/Prefabs/Background/Street/walkway.prefab.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_controller.controller
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_down.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_down.anim.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_left.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_right.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_right.anim.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_up.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_idle_up.anim.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_pick.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_pick.anim.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_pick.controller
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_pick.controller.meta
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_pick_left.anim
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations/player_1_pick_left.anim.meta
+#	modified:   Assets/Scripts/GameManager/GameManager.cs
+#	new file:   Assets/Scripts/GameManager/StreetLayer.cs
+#	new file:   Assets/Scripts/GameManager/StreetLayer.cs.meta
+#
+
