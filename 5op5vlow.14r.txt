@@ -1,0 +1,85 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	deleted:    Assets/Editor/GitHub.meta
+#	deleted:    Assets/Editor/GitHub/AsyncBridge.Net35.dll
+#	deleted:    Assets/Editor/GitHub/AsyncBridge.Net35.dll.meta
+#	deleted:    Assets/Editor/GitHub/CREDITS.txt
+#	deleted:    Assets/Editor/GitHub/CREDITS.txt.meta
+#	deleted:    Assets/Editor/GitHub/EULA.txt
+#	deleted:    Assets/Editor/GitHub/EULA.txt.meta
+#	deleted:    Assets/Editor/GitHub/GitHub.Api.dll
+#	deleted:    Assets/Editor/GitHub/GitHub.Api.dll.mdb
+#	deleted:    Assets/Editor/GitHub/GitHub.Api.dll.mdb.meta
+#	deleted:    Assets/Editor/GitHub/GitHub.Api.dll.meta
+#	deleted:    Assets/Editor/GitHub/GitHub.Logging.dll
+#	deleted:    Assets/Editor/GitHub/GitHub.Logging.dll.mdb
+#	deleted:    Assets/Editor/GitHub/GitHub.Logging.dll.mdb.meta
+#	deleted:    Assets/Editor/GitHub/GitHub.Logging.dll.meta
+#	deleted:    Assets/Editor/GitHub/GitHub.Unity.dll
+#	deleted:    Assets/Editor/GitHub/GitHub.Unity.dll.mdb
+#	deleted:    Assets/Editor/GitHub/GitHub.Unity.dll.mdb.meta
+#	deleted:    Assets/Editor/GitHub/GitHub.Unity.dll.meta
+#	deleted:    Assets/Editor/GitHub/ICSharpCode.SharpZipLib.dll
+#	deleted:    Assets/Editor/GitHub/ICSharpCode.SharpZipLib.dll.meta
+#	deleted:    Assets/Editor/GitHub/Mono.Security.dll
+#	deleted:    Assets/Editor/GitHub/Mono.Security.dll.meta
+#	deleted:    Assets/Editor/GitHub/Octokit-Extensions35.dll
+#	deleted:    Assets/Editor/GitHub/Octokit-Extensions35.dll.mdb
+#	deleted:    Assets/Editor/GitHub/Octokit-Extensions35.dll.mdb.meta
+#	deleted:    Assets/Editor/GitHub/Octokit-Extensions35.dll.meta
+#	deleted:    Assets/Editor/GitHub/Octokit.dll
+#	deleted:    Assets/Editor/GitHub/Octokit.dll.mdb
+#	deleted:    Assets/Editor/GitHub/Octokit.dll.mdb.meta
+#	deleted:    Assets/Editor/GitHub/Octokit.dll.meta
+#	deleted:    Assets/Editor/GitHub/PlatformResources.meta
+#	deleted:    Assets/Editor/GitHub/PlatformResources/mac.meta
+#	deleted:    Assets/Editor/GitHub/PlatformResources/mac/git-lfs.zip
+#	deleted:    Assets/Editor/GitHub/PlatformResources/mac/git-lfs.zip.meta
+#	deleted:    Assets/Editor/GitHub/PlatformResources/windows.meta
+#	deleted:    Assets/Editor/GitHub/PlatformResources/windows/git-lfs.zip
+#	deleted:    Assets/Editor/GitHub/PlatformResources/windows/git-lfs.zip.meta
+#	deleted:    Assets/Editor/GitHub/PlatformResources/windows/git.zip
+#	deleted:    Assets/Editor/GitHub/PlatformResources/windows/git.zip.meta
+#	deleted:    Assets/Editor/GitHub/Rackspace.Threading.dll
+#	deleted:    Assets/Editor/GitHub/Rackspace.Threading.dll.meta
+#	deleted:    Assets/Editor/GitHub/ReadOnlyCollectionsInterfaces.dll
+#	deleted:    Assets/Editor/GitHub/ReadOnlyCollectionsInterfaces.dll.meta
+#	deleted:    Assets/Editor/GitHub/System.Net.Http.dll
+#	deleted:    Assets/Editor/GitHub/System.Net.Http.dll.mdb
+#	deleted:    Assets/Editor/GitHub/System.Net.Http.dll.mdb.meta
+#	deleted:    Assets/Editor/GitHub/System.Net.Http.dll.meta
+#	deleted:    Assets/Editor/GitHub/System.Threading.dll
+#	deleted:    Assets/Editor/GitHub/System.Threading.dll.meta
+#	deleted:    Assets/Editor/GitHub/sfw.net.dll
+#	deleted:    Assets/Editor/GitHub/sfw.net.dll.meta
+#	deleted:    Assets/Editor/GitHub/x64.meta
+#	deleted:    Assets/Editor/GitHub/x64/pthreadVC2.dll
+#	deleted:    Assets/Editor/GitHub/x64/pthreadVC2.dll.meta
+#	deleted:    Assets/Editor/GitHub/x64/sfw_x64.dll
+#	deleted:    Assets/Editor/GitHub/x64/sfw_x64.dll.meta
+#	deleted:    Assets/Editor/GitHub/x64/sfw_x64.pdb.meta
+#	deleted:    Assets/Editor/GitHub/x86.meta
+#	deleted:    Assets/Editor/GitHub/x86/pthreadVC2.dll
+#	deleted:    Assets/Editor/GitHub/x86/pthreadVC2.dll.meta
+#	deleted:    Assets/Editor/GitHub/x86/sfw_x86.dll
+#	deleted:    Assets/Editor/GitHub/x86/sfw_x86.dll.meta
+#	deleted:    Assets/Editor/GitHub/x86/sfw_x86.pdb.meta
+#	modified:   Assets/Prefabs/Bins/Bin.prefab
+#	deleted:    Assets/Prefabs/Characters/Player_1/Animations.meta
+#	modified:   Assets/Prefabs/Characters/Player_1/player_1.prefab
+#	modified:   Assets/Prefabs/Characters/Player_2/player_2.prefab
+#	modified:   Assets/Prefabs/Garbage/PlasticGarbage.prefab
+#	modified:   Assets/Scenes/cameraMovementTest.unity
+#	deleted:    Assets/Scripts/GameArea.meta
+#	modified:   Assets/Scripts/Garbage/GarbageScoring.cs
+#	modified:   ProjectSettings/TagManager.asset
+#
+# Untracked files:
+#	Assets/Editor/
+#
+
