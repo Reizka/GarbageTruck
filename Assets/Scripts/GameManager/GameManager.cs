@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
 
     private int[] rights;
 
+    private int[] missed;
+
+
+    public GameObject statsScreen;
+
     public GameObject street, street_middle, pavement;
     public int height_y = 8;
     public int width_x = 70;
@@ -39,6 +44,7 @@ public class GameManager : MonoBehaviour
         camMovement = GameObject.FindWithTag("MainCamera").GetComponent<CameraScroller>();
         errors = new int[4,4];
         rights = new int[4];
+        missed = new int[4];
         StartLevel();
     }
 
@@ -74,10 +80,20 @@ public class GameManager : MonoBehaviour
             //Means that level Ended
             if (timer <= 0)
             {
-                camMovement.SetRolling(false);
+                EndLevel();
             }
         }
 	}
+
+
+    private void EndLevel()
+    {
+        camMovement.SetRolling(false);
+
+        statsScreen.SetActive(true);
+        statsScreen.GetComponent<StatsScreen>().Prepare(errors, rights, missed);
+    }
+
 
     public void Pause(bool paused)
     {
@@ -198,7 +214,37 @@ public class GameManager : MonoBehaviour
         rights[garbageIdx]++;
         Debug.Log("added a right to " +tagObj +", "+ garbageIdx);
     }
-    
+
+
+    //translates the errors into a matrix
+    public void RegisterMiss(string tagObj)
+    {
+
+        int garbageIdx = 0;
+
+        switch (tagObj)
+        {
+            case "GarbageCartoon":
+                garbageIdx = 0;
+                break;
+
+            case "GarbageGeneric":
+                garbageIdx = 1;
+                break;
+
+            case "GarbagePlastic":
+                garbageIdx = 2;
+                break;
+
+            case "GarbageGlass":
+                garbageIdx = 3;
+                break;
+        }
+
+        missed[garbageIdx]++;
+        Debug.Log("added a right to " + tagObj + ", " + garbageIdx);
+    }
+
 
 
     void StreetSetup()
