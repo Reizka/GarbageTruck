@@ -7,6 +7,8 @@ public class BinCollisionScript : MonoBehaviour {
     //The maximum number of possible garbages that can be placed in the bin
     public int maxGarbageNumber = 4;
     public GameObject garbageType;
+    public GameObject player1;
+    public GameObject player2;
     public float explosionForce = 10;
     public GameObject clonesDir;
     public GameObject truckObj;
@@ -17,6 +19,9 @@ public class BinCollisionScript : MonoBehaviour {
 
     private Transform binTransorm;
 
+    private Transform startingPosition;
+    private float binX;
+    private float binY;
     private SpriteRenderer sprite;
 
     [SerializeField]
@@ -36,6 +41,10 @@ public class BinCollisionScript : MonoBehaviour {
     private void Awake()
     {
         binTransorm = GetComponent<Transform>();
+
+        startingPosition = this.transform;
+        binX = startingPosition.position.x;
+        binY = startingPosition.position.y;
         sprite = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
@@ -99,8 +108,17 @@ public class BinCollisionScript : MonoBehaviour {
         }
         else if (collision.gameObject.tag == truckObj.tag) {
             //Empty the bin with it is trigger by the truck
+            Debug.Log("YUPPI, I'AM ON THE TRUCK");
             nGarbageInside = 0;
+            Transform bin = this.GetComponent<Transform>();
+            bin.parent = clonesDir.transform;
+            Vector3 newPos = new Vector3(binX, binY, 0);
+            bin.position = newPos;
             gameManager.ManipulateScore(scoreEmptyBin);
+        } else if(nGarbageInside == maxGarbageNumber && (collision.gameObject == player1 || collision.gameObject == player2))
+        {
+            Transform bin = this.GetComponent<Transform>();
+            bin.parent = collision.gameObject.transform;
         }
     }
 
@@ -128,32 +146,6 @@ public class BinCollisionScript : MonoBehaviour {
 
     }
 
-
-
-  /*  void Explode(Collider2D collision)
-    {
-        //Here is implemented the bin explosion
-        Debug.Log("EXPLOSION!!");
-
-        //This is the direction of the wrong garbage
-        Vector3 garbageDirection = collision.gameObject.transform.position - binTransorm.position;
-        //and I apply a little strong of the item
-        Rigidbody2D worngGarbage = collision.GetComponent<Rigidbody2D>();
-
-        worngGarbage.gravityScale = 1;
-        worngGarbage.AddForce(garbageDirection * explosionForce);
-        worngGarbage.gravityScale = 0;
-     //   Destroy(collision.gameObject);
-
-        for (int i = 0; i < nGarbageInside; i++)
-        {
-            GameObject clone = Instantiate(garbageType, binTransorm);
-            Vector3 direction = new Vector3(Random.Range(0, 1), garbageDirection.y, garbageDirection.z);
-            clone.GetComponent<Rigidbody2D>().AddForce(direction * explosionForce);
-        }
-
-        nGarbageInside = 0;
-    }
-    */
+    
     
 }
