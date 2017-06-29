@@ -22,15 +22,58 @@ public class BinCollisionScript : MonoBehaviour {
     private Transform startingPosition;
     private float binX;
     private float binY;
+    private SpriteRenderer sprite;
+
+    [SerializeField]
+    private Sprite plastic;
+    [SerializeField]
+    private Sprite glass;
+    [SerializeField]
+    private Sprite generic;
+    [SerializeField]
+    private Sprite paper;
+
+    [SerializeField]
+    private int scoreEmptyBin = 10;
+
+    private GameManager gameManager;
 
     private void Awake()
     {
         binTransorm = GetComponent<Transform>();
+
         startingPosition = this.transform;
         binX = startingPosition.position.x;
         binY = startingPosition.position.y;
+        sprite = GetComponent<SpriteRenderer>();
+        gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
+    void Start()
+    {
+        SetSprite();
+    }
+
+
+    private void SetSprite()
+    {
+        if (this.garbageType.tag == "GarbageCartoon")
+        {
+            sprite.sprite = paper;
+        }
+        else if (this.garbageType.tag == "GarbageGeneric")
+        {
+            sprite.sprite = generic;
+        }
+        else if (this.garbageType.tag == "GarbagePlastic")
+        {
+            sprite.sprite = plastic;
+        }
+        else if (this.garbageType.tag == "GarbageGlass")
+        {
+            sprite.sprite = glass;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,12 +86,14 @@ public class BinCollisionScript : MonoBehaviour {
                 //Here the bin and the bin are the same. 
                 if (nGarbageInside < maxGarbageNumber)
                 {
+                    gameManager.ManipulateScore(collision.gameObject.GetComponent<GarbageScoring>().scoreCorrectBin);
                     nGarbageInside++;
                     Destroy(collision.gameObject);
+
                 }
                 else
                 {
-
+                    gameManager.RegisterError(garbageType.tag, collision.gameObject.tag);
                     Debug.Log("FULL");
                 }
             }
@@ -56,6 +101,7 @@ public class BinCollisionScript : MonoBehaviour {
             {
                 //Oh, the player has placed the garbage in the wrong bin..
                 //Prepare to the explosion in 3,2,1..
+                gameManager.ManipulateScore(collision.gameObject.GetComponent<GarbageScoring>().scoreWrongBin);
                 Explode(collision);
 
             }
@@ -68,13 +114,11 @@ public class BinCollisionScript : MonoBehaviour {
             bin.parent = clonesDir.transform;
             Vector3 newPos = new Vector3(binX, binY, 0);
             bin.position = newPos;
-//            bin.position = startingPosition.position;
-            
+            gameManager.ManipulateScore(scoreEmptyBin);
         } else if(nGarbageInside == maxGarbageNumber && (collision.gameObject == player1 || collision.gameObject == player2))
         {
             Transform bin = this.GetComponent<Transform>();
             bin.parent = collision.gameObject.transform;
-
         }
     }
 
