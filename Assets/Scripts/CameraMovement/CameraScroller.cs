@@ -5,18 +5,20 @@ using UnityEngine;
 public class CameraScroller : MonoBehaviour
 {
     
+    //8.45am Sarzano -- Motion Capture
+
     private Camera mainCam;
     [SerializeField]
     private float speed;
     [SerializeField]
     private bool rolling;
 
-
-    const float xOffset = 7f;
-
-    const float yOffset = 3f;
-
-    const float safeOffset = 0.2f;
+    [SerializeField]
+    public float xOffset = 7f;
+    [SerializeField]
+    public const float yOffset = 3f;
+    [SerializeField]
+    public const float safeOffset = 0.2f;
 
 
 	// Use this for initialization
