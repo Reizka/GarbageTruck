@@ -47,10 +47,7 @@ public class PlayerOneControls : MonoBehaviour
         {
         
         }
-        else
-        {
-
-        }
+     
 
 
     }
