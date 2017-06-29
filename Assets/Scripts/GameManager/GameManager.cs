@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
-
+/*
     void RoomSetup()
     {
         //Setting room size
-        height_y = room.Height;
+        height_y = 8;
         width_x = room.Width;
         //setting tile gameobjects
         floorTile = Resources.Load("MainGame/" + room.FloorGameObjectName) as GameObject;
@@ -45,5 +45,5 @@ public class GameManager : MonoBehaviour {
                 toInstantiate.gameObject.tag = oldTag;
             }
         }
-    }
+    }*/
 }
