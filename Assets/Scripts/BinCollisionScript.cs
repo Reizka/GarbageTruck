@@ -47,6 +47,8 @@ public class BinCollisionScript : MonoBehaviour {
         binY = startingPosition.position.y;
         sprite = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        player1 = GameObject.FindWithTag("player1");
+        player2 = GameObject.FindWithTag("player2");
     }
 
     void Start()
@@ -116,15 +118,19 @@ public class BinCollisionScript : MonoBehaviour {
             Debug.Log("YUPPI, I'AM ON THE TRUCK");
             nGarbageInside = 0;
             Transform bin = this.GetComponent<Transform>();
-            bin.parent = clonesDir.transform;
+            //bin.parent = clonesDir.transform;
+            bin.parent = null;
             Vector3 newPos = new Vector3(binX, binY, 0);
             bin.position = newPos;
             gameManager.ManipulateScore(scoreEmptyBin);
         } else if(nGarbageInside == maxGarbageNumber && (collision.gameObject == player1 || collision.gameObject == player2))
         {
+            Debug.Log("got this else to setthe transform");
             Transform bin = this.GetComponent<Transform>();
             bin.parent = collision.gameObject.transform;
         }
+
+        Debug.Log("collided with " + collision.gameObject+" , ngarbage = "+ nGarbageInside +", maxGar = "+ maxGarbageNumber);
     }
 
 

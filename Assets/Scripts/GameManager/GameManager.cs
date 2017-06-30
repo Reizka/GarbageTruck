@@ -94,7 +94,9 @@ public class GameManager : MonoBehaviour
         CountRestGarbage();
 
         statsScreen.SetActive(true);
-        statsScreen.GetComponent<StatsScreen>().Prepare(errors, rights, missed);
+        statsScreen.GetComponent<StatsScreen>().Prepare(errors, rights, missed, totalScore);
+
+        pause = true;
     }
 
 
@@ -268,7 +270,7 @@ public class GameManager : MonoBehaviour
         }
 
         rights[garbageIdx]++;
-        Debug.Log("added a right to " +tagObj +", "+ garbageIdx);
+        Debug.Log("GOT RIGHT " +tagObj +", "+ garbageIdx);
     }
 
 
@@ -298,7 +300,7 @@ public class GameManager : MonoBehaviour
         }
 
         missed[garbageIdx]++;
-        Debug.Log("added a right to " + tagObj + ", " + garbageIdx);
+        Debug.Log("MISSED " + tagObj + ", " + garbageIdx);
     }
 
 

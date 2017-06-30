@@ -12,13 +12,19 @@ public class StatsScreen : MonoBehaviour {
     [SerializeField]
     private Text missedTable;
 
+    [SerializeField]
+    private Text errorsTable;
+
+    [SerializeField]
+    private Text finalScore;
+
 
 
     // Use this for initialization
     void Start ()
     {
-        rightTable.text = "";
-        missedTable.text = "";
+        //rightTable.text = "";
+        //missedTable.text = "";
 	}
 	
 	// Update is called once per frame
@@ -51,19 +57,26 @@ public class StatsScreen : MonoBehaviour {
         return null;
     }
 
-    public void Prepare(int [,] errors, int[] rights, int[] missed)
+    public void Prepare(int [,] errors, int[] rights, int[] missed, int score)
     {
         Debug.Log("preparing");
 
         rightTable.text = "";
         missedTable.text = "";
+        errorsTable.text = "";
+        
+
+
+        List<int> existingIdx = new List<int>();
 
         //display Rights
         for (int i = 0; i < rights.Length; i++)
         {
+            Debug.Log("rights, i = " + i + ", val is " + rights[i]);
             //this means that category existed ingame
            if ((rights[i] > 0) || (missed[i] > 0))
             {
+                existingIdx.Add(i);
                 rightTable.text = rightTable.text + GetName(i) + ": " + rights[i].ToString() + "; ";
                 /*
                 GameObject objRightClone = Instantiate(objRight);
@@ -78,8 +91,9 @@ public class StatsScreen : MonoBehaviour {
         //display Missed
         for (int i = 0; i < missed.Length; i++)
         {
+            Debug.Log("missed, i = " + i + ", val is " + missed[i]);
             //this means that category existed ingame
-            if ((rights[i] > 0) || (missed[i] > 0))
+            if (existingIdx.IndexOf(i) >= 0)
             {
                 missedTable.text = missedTable.text + GetName(i) + ": " + missed[i].ToString() + "; ";
                 /*
@@ -91,6 +105,28 @@ public class StatsScreen : MonoBehaviour {
             }
 
         }
+
+        
+        int[] existingIndexes = existingIdx.ToArray();
+        
+        for (int i = 0; i < existingIndexes.Length; i++)
+        {
+            for (int x = 0; x < existingIndexes.Length; x++)
+            {
+                if (x == i)
+                    continue;
+                else
+                {
+                    if (errors[i,x] > 0)
+                    {
+                        errorsTable.text = errorsTable.text+ GetName(x) + " in " + GetName(i) + " BIN: " + errors[i, x]+"\n";
+                    }
+                }
+            }
+        }
+        
+
+        finalScore.text = finalScore.text + " " + score.ToString();
 
     }
 

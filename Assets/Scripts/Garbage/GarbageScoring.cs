@@ -86,6 +86,7 @@ public class GarbageScoring : MonoBehaviour
             if (distance.x >= 6.3f )
             {
                 gameMng.ManipulateScore(scoreMissed);
+                gameMng.RegisterMiss(this.gameObject.tag);
                 Destroy(this.gameObject);
             }
 
