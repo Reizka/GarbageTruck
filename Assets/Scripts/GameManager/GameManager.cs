@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject statsScreen;
 
+    public GameObject help;
+
+    public GameObject about;
+
+
+
     public GameObject street, street_middle, pavement;
     public int height_y = 8;
     public int width_x = 70;
@@ -72,9 +78,7 @@ public class GameManager : MonoBehaviour
                 
             
             UItimer.text = timer.ToString();
-
-
-
+                        
             UIscore.text = "SCORE: "+ totalScore.ToString();
 
             //Means that level Ended
@@ -96,13 +100,51 @@ public class GameManager : MonoBehaviour
         statsScreen.SetActive(true);
         statsScreen.GetComponent<StatsScreen>().Prepare(errors, rights, missed, totalScore);
 
-        pause = true;
+        Pause(true);
+    }
+
+
+    public void ShowAbout()
+    {
+        about.SetActive(true);
+        Pause(true);
+    }
+
+    public void ShowHelp()
+    {
+        help.SetActive(true);
+        Pause(true);
+    }
+
+    public void CloseAbout()
+    {
+        about.SetActive(false);
+        Pause(false);
+    }
+
+    public void CloseHelp()
+    {
+        help.SetActive(false);
+        Pause(false);
     }
 
 
     public void Pause(bool paused)
     {
-        pause = true;
+        pause = paused;
+
+        camMovement.SetRolling(!paused);
+
+        if (paused)
+        {
+            GameObject.FindWithTag("player1").GetComponent<PlayerOneControls>().enabled = false;
+            GameObject.FindWithTag("player2").GetComponent<PlayerTwoControls>().enabled = false;
+        }
+        else
+        {
+            GameObject.FindWithTag("player1").GetComponent<PlayerOneControls>().enabled = true;
+            GameObject.FindWithTag("player2").GetComponent<PlayerTwoControls>().enabled = true;
+        }
     }
 
     public void ManipulateScore(int val)

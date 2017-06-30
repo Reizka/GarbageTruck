@@ -18,7 +18,7 @@ public class StatsScreen : MonoBehaviour {
     [SerializeField]
     private Text finalScore;
 
-
+    
 
     // Use this for initialization
     void Start ()
@@ -32,6 +32,9 @@ public class StatsScreen : MonoBehaviour {
     {
 		
 	}
+
+
+    
 
 
     private string GetName(int idx)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScroller : MonoBehaviour
 {
     
-    //8.45am Sarzano -- Motion Capture
+    
 
     private Camera mainCam;
     [SerializeField]
